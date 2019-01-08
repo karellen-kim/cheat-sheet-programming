@@ -1,5 +1,18 @@
 # Python Cheat Sheet
 
+## Json
+```python
+import json
+
+# load from json string
+jsonStrings =  '{ "name":"Kim", "age":30 }'
+json.loads(jsonStrings)
+
+# load from obj
+obj = { "name":"Kim", "age":30 }
+json.dumps(obj)
+```
+
 ## Singletone
 ```python
 def singleton(class_):
