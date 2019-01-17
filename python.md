@@ -1,14 +1,14 @@
 # Python Cheat Sheet
 
 ## Collections
-### List As Stack
+* List as stack
 ```python
 s = []
 s.append(1)
 s.append(2)
 s.pop() # 2
 ```
-### Deque As Queue
+* Deque as queue
 ```python
 from collections import deque
 q = deque()
@@ -16,7 +16,7 @@ q.append(1)
 q.append(2)
 q.popleft() # 1
 ```
-### Deque As Stack
+* Deque as stack
 ```python
 from collections import deque
 q = deque()
