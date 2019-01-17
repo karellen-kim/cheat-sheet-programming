@@ -1,5 +1,30 @@
 # Python Cheat Sheet
 
+## Collections
+### List As Stack
+```python
+s = []
+s.append(1)
+s.append(2)
+s.pop() # 2
+```
+### Deque As Queue
+```python
+from collections import deque
+q = deque()
+q.append(1)
+q.append(2)
+q.popleft() # 1
+```
+### Deque As Stack
+```python
+from collections import deque
+q = deque()
+q.append(1)
+q.append(2)
+q.pop() # 2
+```
+
 ## Import module
 ```python
 import os,sys
