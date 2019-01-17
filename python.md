@@ -1,5 +1,11 @@
 # Python Cheat Sheet
 
+## Import module
+```python
+import os,sys
+sys.path.insert(1, os.path.join(sys.path[0], '..'))
+```
+
 ## Json
 ```python
 import json
