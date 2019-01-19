@@ -1,5 +1,11 @@
 # Python Cheat Sheet
 
+## Recursion Limit
+```
+import sys
+sys.setrecursionlimit(1000)
+```
+
 ## Collections
 * List as stack
 ```python
