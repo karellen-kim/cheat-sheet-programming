@@ -1,5 +1,10 @@
 # Python Cheat Sheet
 
+## Force division to be floating point
+```
+from __future__ import division
+```
+
 ## Recursion Limit
 ```
 import sys
@@ -48,6 +53,39 @@ strs.sort(key=len) # a, bb, ccc
 list = [4,1,6]
 sorted = list.sorted()
 reversed = list.reversed()
+```
+
+## Algorithm
+* Min heapq
+```python
+import heapq
+h = []
+heapq.heappush(h, 1)
+heapq.heappush(h, 10)
+print(heapq.heappop(h)) # 1
+```
+* Max heapq
+```python
+import heapq
+h = []
+heapq.heappush(h, 1 * -1)
+heapq.heappush(h, 10 * -1)
+print(heapq.heappop(h) * -1) # 10
+```
+* Binary search
+```python
+import bisect
+list = []
+bisect.insort(list, 1)
+bisect.insort(list, 10)
+bisect.insort(list, 5)
+
+print(list) # [1,5,10]
+print(bisect.bisect(list, 3)) # 3이 들어갈 index : 1
+
+print(bisect.bisect(list, 3)) # 5가 들어갈 index : 2
+print(bisect.bisect_right(list, 5)) # 5가 들어갈 index : 2
+print(bisect.bisect_left(list, 5)) # 5가 들어갈 index : 1 (같은 값인 경우 left)
 ```
 
 ## Import module
