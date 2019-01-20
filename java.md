@@ -1,9 +1,14 @@
 # Java Cheat Sheet
 
-## Initial Collections
+## Initial, Conversion Collections
 ```java
+// Initial
 List<Integer> toArrays = Arrays.asList(1, 10, 5);
-Arrays.stream(list).boxed().collect(Collectors.toList());
+List<Integer> toList = Arrays.stream(list).boxed().collect(Collectors.toList());
+
+// Conversion
+Integer[] toWrapperArray = toList.toArray(new Integer[]{});
+int[] toPrimitiveArray = toList.stream().mapToInt(Integer::intValue).toArray();
 ```
 
 ## Binary Search
