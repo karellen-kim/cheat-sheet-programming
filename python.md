@@ -30,6 +30,25 @@ q.append(1)
 q.append(2)
 q.pop() # 2
 ```
+* sort, reverse
+```python
+list1 = [4,1,6]
+list1.sort() # 1,4,6 
+
+list2 = [4,1,6]
+list2.sort(reverse=True) # 6,4,1
+
+list3 = [4,1,6]
+list3.reverse() # 6,1,4
+
+strs = ["a", "ccc", "bb"]
+strs.sort(key=len) # a, bb, ccc
+
+# 원본 리스트 변형하지 않음
+list = [4,1,6]
+sorted = list.sorted()
+reversed = list.reversed()
+```
 
 ## Import module
 ```python
