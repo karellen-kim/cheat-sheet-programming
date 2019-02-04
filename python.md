@@ -55,6 +55,11 @@ sorted = list.sorted()
 reversed = list.reversed()
 ```
 
+* Initialize Matrix
+```python
+matrix = [[ 0 for i in range(n) ] for j in range(m)]
+```
+
 ## Algorithm
 * Min heapq
 ```python
