@@ -1,14 +1,34 @@
 # Python Cheat Sheet
 
-## Force division to be floating point
+## Class 
+* toString, Hash, Compare
+```python
+class Pos :
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def __str__(self):
+        return "x=%d, y=%d" % (self.x, self.y)
+    def __hash__(self):
+        return hash((self.x, self.y))
+    def __eq__(self, other):
+        return (self.x, self.y) == (other.x, other.y)
+    def __lt__(self, other):
+        return other != None and self.x < other.x and self.y < other.y
 ```
-from __future__ import division
-```
+* Singletone
+```python
+def singleton(class_):
+  instances = {}
+  def getinstance(*args, **kwargs):
+    if class_ not in instances:
+        instances[class_] = class_(*args, **kwargs)
+    return instances[class_]
+  return getinstance
 
-## Recursion Limit
-```
-import sys
-sys.setrecursionlimit(1000)
+@singleton
+class MyClass(BaseClass):
+  pass
 ```
 
 ## Collections
@@ -77,6 +97,13 @@ heapq.heappush(h, 1 * -1)
 heapq.heappush(h, 10 * -1)
 print(heapq.heappop(h) * -1) # 10
 ```
+* heapq with priority
+```python
+import heapq
+h = []
+heapq.heappush(h, ((x,y), n, other))
+(x,y), n, other = heapq.heappop(h)
+```
 * Binary search
 ```python
 import bisect
@@ -93,10 +120,20 @@ print(bisect.bisect_right(list, 5)) # 5가 들어갈 index : 2
 print(bisect.bisect_left(list, 5)) # 5가 들어갈 index : 1 (같은 값인 경우 left)
 ```
 
-## Import module
+## System 
+* Import module
 ```python
 import os,sys
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
+```
+* Recursion Limit
+```python
+import sys
+sys.setrecursionlimit(1000)
+```
+* Force division to be floating point
+```python
+from __future__ import division
 ```
 
 ## Json
@@ -112,22 +149,8 @@ obj = { "name":"Kim", "age":30 }
 json.dumps(obj)
 ```
 
-## Singletone
-```python
-def singleton(class_):
-  instances = {}
-  def getinstance(*args, **kwargs):
-    if class_ not in instances:
-        instances[class_] = class_(*args, **kwargs)
-    return instances[class_]
-  return getinstance
-
-@singleton
-class MyClass(BaseClass):
-  pass
-```
-
-## Date Parsing
+## Parsing
+* Date
 ```python
 import datetime
 import time
@@ -135,8 +158,7 @@ import time
 time = datetime.datetime.strptime("05/Dec/2018:10:27:18", "%d/%b/%Y:%H:%M:%S")
 time.strftime("%Y-%m-%d")
 ```
-
-## Regular expression
+* Regular expression
 ```python
 import re
 
@@ -145,7 +167,8 @@ result = pattern.search(log)
 result.group("date")
 ```
 
-## Debug : Print with variable name
+## Debug
+* Print with variable name
 ```python 
 def __debug__(var) :
     callers_local_vars = inspect.currentframe().f_back.f_locals.items()
