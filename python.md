@@ -68,6 +68,8 @@ list3.reverse() # 6,1,4
 
 strs = ["a", "ccc", "bb"]
 strs.sort(key=len) # a, bb, ccc
+list = [[100, 200], [200, 1300], [1000, 1250], [2000, 3200]]
+list.sort(key=lambda item: item[1])
 
 # 원본 리스트 변형하지 않음
 list = [4,1,6]
