@@ -82,6 +82,13 @@ reversed = list.reversed()
 matrix = [[ 0 for i in range(n) ] for j in range(m)]
 ```
 
+* Enumerate
+```python
+arr = [2, 7, 10]
+for idx, val in enumerate(arr):
+    print(idx, val)
+```
+
 ## Algorithm
 * Min heapq
 ```python
