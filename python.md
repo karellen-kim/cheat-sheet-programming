@@ -169,6 +169,13 @@ result = pattern.search(log)
 result.group("date")
 ```
 
+## Conversion
+* Convert to character/int
+```python
+chr(97) // 'a'
+ord('a') // 97
+```
+
 ## Debug
 * Print with variable name
 ```python 
