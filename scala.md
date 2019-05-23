@@ -62,3 +62,18 @@ implicit def deriveCCons[H, T <: Coproduct](implicit H: Lazy[ReverseISB[H]], T: 
     }
   }
 ```
+
+## Akka
+#### RabbitMQ : dead letter subscribe
+```scala
+class DeadLetterMonitorActor() extends Actor {
+  def receive = {
+    case DeadLetter(message, snd, rcp) =>
+      val origin = if (snd eq context.system.deadLetters) "without sender" else s"from $snd"
+    case _ => println("DeadLetterMonitorActor : got an unexpected message")
+  }
+}
+
+val deadLetterMonitorActor = actorSystem.actorOf(Props(classOf[DeadLetterMonitorActor]), "deadlettermonitoractor")
+actorSystem.eventStream.subscribe(deadLetterMonitorActor, classOf[DeadLetter])
+```
