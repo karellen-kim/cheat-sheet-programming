@@ -73,7 +73,7 @@ val keys = Keys[labl.Repr].apply
 println(keys.toList.map(_.name))
 ```
 #### Get case class field names and values
-```
+```scala
 object keysToString extends Poly1 {
   implicit def keyToName[A, B] = at[(Symbol with A, B)] { case (k, v) => (k.name, v) }
 }
