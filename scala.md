@@ -62,6 +62,26 @@ implicit def deriveCCons[H, T <: Coproduct](implicit H: Lazy[ReverseISB[H]], T: 
     }
   }
 ```
+### Get case class field names
+```scala
+import shapeless._, record._, ops.record._
+
+case class Foo(bar: String, baz: Boolean)
+val labl = LabelledGeneric[Foo]
+val keys = Keys[labl.Repr].apply
+
+println(keys.toList.map(_.name))
+```
+### Get case class field names and values
+```
+object keysToString extends Poly1 {
+  implicit def keyToName[A, B] = at[(Symbol with A, B)] { case (k, v) => (k.name, v) }
+}
+case class Foo(bar: String, baz: Boolean)
+val valuesWithLabel = LabelledGeneric[Foo].to(Foo("bar", true)).fields.map(keysToString)
+
+print(valuesWithLabel)
+```
 
 ## Akka
 #### RabbitMQ : dead letter subscribe
