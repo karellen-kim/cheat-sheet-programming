@@ -62,7 +62,7 @@ implicit def deriveCCons[H, T <: Coproduct](implicit H: Lazy[ReverseISB[H]], T: 
     }
   }
 ```
-### Get case class field names
+#### Get case class field names
 ```scala
 import shapeless._, record._, ops.record._
 
@@ -72,7 +72,7 @@ val keys = Keys[labl.Repr].apply
 
 println(keys.toList.map(_.name))
 ```
-### Get case class field names and values
+#### Get case class field names and values
 ```
 object keysToString extends Poly1 {
   implicit def keyToName[A, B] = at[(Symbol with A, B)] { case (k, v) => (k.name, v) }
