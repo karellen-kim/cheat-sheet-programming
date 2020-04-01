@@ -183,6 +183,14 @@ chr(97) // 'a'
 ord('a') // 97
 ```
 
+## String
+* trim
+```python
+s.strip()
+s.rstrip()
+s.lstrip()
+```
+
 ## Debug
 * Print with variable name
 ```python 
@@ -193,4 +201,14 @@ def __debug__(var) :
         print(var)
     else :
         print("%s = %s" % (name[0], str(var)))
+```
+* Assert equals
+```python
+def eq(expected, func, *params) :
+	actual = func(*params)
+	
+	if expected == actual :
+		print("[PASS] params={}, actual={}\n".format(params, actual))
+	else :
+		print("[ERROR] params={}, expected={}, actual={}\n".format(params, expected, actual))
 ```
