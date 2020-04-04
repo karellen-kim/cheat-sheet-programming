@@ -106,6 +106,12 @@ heapq.heappush(h, 1 * -1)
 heapq.heappush(h, 10 * -1)
 print(heapq.heappop(h) * -1) # 10
 ```
+* heapq with tuple
+```python
+heapq.heappush(h, (2, 'a'))
+heapq.heappush(h, (1, 'b'))
+heapq.heappop(h) # 1 sort by first element
+```
 * heapq with priority
 ```python
 import heapq
