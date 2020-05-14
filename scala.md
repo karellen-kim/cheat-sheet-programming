@@ -1,5 +1,13 @@
 # Scala Cheat Sheet
 
+## Tuple
+* tuple to function arguments
+```
+def sum(x: Int, y: Int) = x + y
+val args = (1, 2)
+(sum _).tupled(args)
+```
+
 ## Json
 #### [circe](https://circe.github.io/circe/)
 ```scala
