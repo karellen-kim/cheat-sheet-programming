@@ -4,3 +4,4 @@
 * [Jupyter](./jupyter.md)
 * [Python](./python.md)
 * [Scala](./scala.md)
+* [Bash](./bash.md)
