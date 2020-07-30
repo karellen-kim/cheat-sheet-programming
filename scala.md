@@ -91,6 +91,21 @@ val valuesWithLabel = LabelledGeneric[Foo].to(Foo("bar", true)).fields.map(keysT
 print(valuesWithLabel)
 ```
 
+## Type
+```scala
+  def apply[A <: { def id : Long }](func: (Long, Int) => List[A]): (Long, Int) => Pageable[A, _ <: Long] = {
+    (cursorId: Long, count: Int) => {
+      val list = func(cursorId, count + 1)
+
+      if (list.size <= count) {
+        new Pageable(None, false, list)
+      } else {
+        new Pageable(list.lastOption.map(_.id), true, list.dropRight(1))
+      }
+    }
+  }
+```
+
 ## Akka
 #### RabbitMQ : dead letter subscribe
 ```scala
