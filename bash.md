@@ -1,5 +1,11 @@
 # Bash Cheat Sheet
 
+## Input
+```sh
+read -p "Name : " NAME
+NAME=${name:-"KIM"}
+```
+
 ## Pattern matching
 ```sh
 if [[ $1 =~ .*port=([0-9]+).* ]]
