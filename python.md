@@ -32,12 +32,47 @@ class MyClass(BaseClass):
 ```
 
 ## Collections
+* List
+```python
+items = ['a', 'b', 'c', 'd', 'e']
+items[::2] # [a, c, e]
+items[::-2] # [e, c, a]
+items[::-1] # == reverse
+
+items.extend(['f', 'g']) # ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+
+items.index('d') # 2
+'d' in items # True
+items.count('d') 
+
+del items[0] # [b', 'c', 'd', 'e', 'f', 'g']
+items.remove('d')
+```
+* Dic
+```python
+items = { 'a' : 1, 'b' : 2}
+# items[c] # ERROR
+items.get('c') # None
+items.get('c', 'default') # default
+```
+* Set
+```python
+items1 = {1, 2, 3}
+items2 = {3, 4, 5}
+items1.intersection(items2) # {3}
+items1.union(items2) # {1, 2, 3, 4, 5}
+items1.difference(items2) # {1, 2}
+items1.symmetric_difference(items2) # {1, 2, 4, 5}
+items1.issubset(items2) # False
+```
 * List as stack
 ```python
 s = []
 s.append(1)
 s.append(2)
-s.pop() # 2
+s.append(3)
+s.pop(0) # 1
+s.pop() # 3
 ```
 * Deque as queue
 ```python
